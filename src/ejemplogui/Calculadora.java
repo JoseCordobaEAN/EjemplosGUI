@@ -5,6 +5,8 @@
  */
 package ejemplogui;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author jmcordoba
@@ -51,9 +53,16 @@ public class Calculadora extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(220, 333));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         display.setEditable(false);
         display.setBackground(new java.awt.Color(255, 255, 255));
+        display.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        display.setFocusable(false);
         display.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayActionPerformed(evt);
@@ -61,38 +70,65 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         jButton1.setText("1");
+        jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("2");
+        jButton2.setFocusable(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("3");
+        jButton3.setFocusable(false);
 
         jButton4.setText("5");
+        jButton4.setFocusable(false);
 
         jButton5.setText("6");
+        jButton5.setFocusable(false);
 
         jButton6.setText("4");
+        jButton6.setFocusable(false);
 
         jButton7.setText("8");
+        jButton7.setFocusable(false);
 
         jButton8.setText("9");
+        jButton8.setFocusable(false);
 
         jButton9.setText("7");
+        jButton9.setFocusable(false);
 
         jButton10.setText("0");
+        jButton10.setFocusable(false);
 
         jButton11.setText(".");
+        jButton11.setFocusable(false);
 
         jButton12.setText("=");
+        jButton12.setFocusable(false);
 
         jButton13.setText("+");
+        jButton13.setFocusable(false);
 
         jButton14.setText("-");
+        jButton14.setFocusable(false);
 
         jButton15.setText("*");
+        jButton15.setFocusable(false);
 
         jButton16.setText("/");
+        jButton16.setFocusable(false);
 
         jButton17.setText("%");
+        jButton17.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,6 +222,55 @@ public class Calculadora extends javax.swing.JFrame {
     private void displayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_displayActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        display.setText(display.getText() + 1);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        display.setText(display.getText() + 2);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+        int codigo = evt.getKeyCode();
+        switch (codigo) {
+            case KeyEvent.VK_0:
+                display.setText(display.getText() + 0);
+                break;
+            case KeyEvent.VK_1:
+                display.setText(display.getText() + 1);
+                break;
+            case KeyEvent.VK_2:
+                display.setText(display.getText() + 2);
+                break;
+            case KeyEvent.VK_3:
+                display.setText(display.getText() + 3);
+                break;
+            case KeyEvent.VK_4:
+                display.setText(display.getText() + 4);
+                break;
+            case KeyEvent.VK_5:
+                display.setText(display.getText() + 5);
+                break;
+            case KeyEvent.VK_6:
+                display.setText(display.getText() + 6);
+                break;
+            case KeyEvent.VK_7:
+                display.setText(display.getText() + 7);
+                break;
+            case KeyEvent.VK_8:
+                display.setText(display.getText() + 8);
+                break;
+            case KeyEvent.VK_9:
+                display.setText(display.getText() + 9);
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments
